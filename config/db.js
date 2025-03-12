@@ -13,7 +13,7 @@ const connectDB = async () => {
 };
 
 mongoose.connection.once("connected", () => {
-  console.log("DB connected Successfully");
+  console.log('\x1b[96m%s\x1b[0m',"🛢️  database connected Successfully");
 });
 mongoose.connection.on("error", (error) => {
   console.log(`DB Error : ${error.message}`);
