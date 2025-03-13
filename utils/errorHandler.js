@@ -23,6 +23,8 @@ const errorHandler = (err,req,res,next) => {
         
         case constant.SERVER_ERROR:
             res.json({ tittle:"Internal server error", message: err.message, stackTrace: err.stack})
+            break;
+
         default:
             console.warn('\x1b[92m%s\x1b[0m','Everything is going fine, no errors encountered');
             break;

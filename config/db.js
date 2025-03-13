@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-const connection_String = process.env.MONGO_URL;
+const connection_String = process.env.CLUSTURE_URI;
 
 const connectDB = async () => {
   try {
