@@ -37,4 +37,15 @@ const getInstitutionById = async (id) => {
   }
 };
 
-module.exports = { getAllInstitutions, getInstitutionById };
+const updateStatus = async (id, status) => {
+  try {
+    const collection = await connectdb();
+    await collection.updateOne({ _id: new ObjectId(id) }, { $set: { status } });
+    const updateData = await collection.findOne({ _id: new ObjectId(id) });
+    return updateData;
+  } catch (error) {
+    return { message: error.message };
+  }
+};
+
+module.exports = { getAllInstitutions, getInstitutionById, updateStatus };

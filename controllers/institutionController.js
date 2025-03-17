@@ -19,4 +19,16 @@ const getInstitutionById = async (req, res) => {
   }
 };
 
-module.exports = { getAllInstitutions, getInstitutionById };
+const updateStatus = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const status = req.body.status;
+    console.log(status);
+    const updatedInstitute = await institutionService.updateStatus(id, status);
+    res.status(201).json(updatedInstitute);
+  } catch (error) {
+    res.status(401).json({ messge: error.message });
+  }
+};
+
+module.exports = { getAllInstitutions, getInstitutionById, updateStatus };
