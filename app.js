@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const voucherRouter = require('./routes/voucherRoutes')

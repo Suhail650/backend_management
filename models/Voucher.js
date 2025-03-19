@@ -8,6 +8,7 @@ const voucherSchema = mongoose.Schema({
         enum: ["Pending", "Approved", "Rejected"], 
         default: "Pending" 
     },
+    invoice:{type: Number, required:true , unique:true},
     createdAt: { type: Date, default: Date.now }
 });
 

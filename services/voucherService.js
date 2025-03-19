@@ -17,20 +17,21 @@ const approveVoucherRequest = async (id) => {
         throw new Error("Only pending requests can be approved.");
     }
 
-    // Create a new approved voucher
-    const newVoucher = new Voucher({
-        institutionName: request.institutionName,
-        noOfVouchers: request.noOfVouchers,
-        requestStatus: "Approved" // Mark as approved
-    });
+    // // Create a new approved voucher
+    // const newVoucher = new Voucher({
+    //     institutionName: request.institutionName,
+    //     noOfVouchers: request.noOfVouchers,
+    //     invoice: request.invoice,
+    //     requestStatus: "Approved" // Mark as approved
+    // });
 
-    await newVoucher.save(); // Save the new voucher
+    // await newVoucher.save(); // Save the new voucher
 
     // Update the request status
     request.requestStatus = "Approved";
     await request.save();
 
-    return newVoucher;
+    return request;
 };
 
 // Reject voucher request
