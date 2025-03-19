@@ -7,6 +7,7 @@ const cors = require('cors');
 const errorHandler = require('./utils/errorHandler');
 const institutionRoutes = require('./routes/institutionRoutes');
 const studentRoutes =require ('./routes/studentRoutes')
+const blogRoutes = require ('./routes/blogRoutes')
 
 require('dotenv').config();
 
@@ -24,6 +25,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/institutions', institutionRoutes )
 app.use('/api/vouchers',voucherRouter)
 app.use('/api/students',studentRoutes)
+app.use('/api/blogs',blogRoutes)
 
 app.use(errorHandler)
 module.exports = app;
