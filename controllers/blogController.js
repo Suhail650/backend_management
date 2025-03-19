@@ -44,7 +44,7 @@ const updateBlog = async (req, res) => {
 const deleteBlog = async (req, res) => {
   const id = req.params.id;
   try {
-    const result = await blogService.deleteBlog(id);
+     await blogService.deleteBlog(id);
     res.status(204).json({ message: "Blog deleted Successfully" });
   } catch (error) {
     res.status(404).json({ message: error.message });

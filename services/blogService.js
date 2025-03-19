@@ -8,7 +8,7 @@ const getAllBlogs = async () => {
 const getBlogById = async (id) => {
   const blog = await blogModel.findById(id);
   if (!blog) {
-    return res.status(400).json({ message: "Blog not found" });
+    return ({ message: "Blog not found" });
   }
   return blog;
 };
@@ -26,7 +26,7 @@ const updateBlog = async (id, data) => {
   data.createdDateTime = Date.now();
   const updatedData = await blogModel.findByIdAndUpdate(id, data);
   if (!updatedData) {
-    return res.status(404).json({ message: "Blog not found!" });
+    return ({ message: "Blog not found!" });
   }
   return updatedData;
 };
