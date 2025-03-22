@@ -12,6 +12,10 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Invalid email " });
     }
 
+    if (user.role !== "admin") {
+      return res.status(403).json({ message: "Access denied. Only admins can log in." });
+    }
+
     // Compare password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
